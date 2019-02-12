@@ -1,0 +1,22 @@
+functools32 ; python_version=='2.7'
+redis<3.0.0
+flask
+flask-sqlalchemy
+psycopg2
+flask_restful
+requests
+dynaconf
+pytest
+ipdb
+mysql-connector
+flask_testing
+pytest-flask-sqlalchemy
+factory_boy
+flask-jsonschema-validator
+celery
+attr
+uwsgi
+mock
+freezegun
+flake8
+flask-marshmallow

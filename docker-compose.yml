@@ -1,0 +1,31 @@
+version: "3.6"
+
+services:
+  app:
+    image: app
+    build:
+      context: .
+    ports:
+      - 5000:80
+    volumes:
+      - ./app:/app
+    depends_on:
+      - redis
+    links:
+      - db
+    environment:
+      - DB_URI=mysql://root:pass@db/mysql
+      - OXR_BASE_URL=base
+      - OXR_API_KEY=key
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
